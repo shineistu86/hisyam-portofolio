@@ -101,10 +101,29 @@ The production-ready files will be in the `dist` folder.
 
 ### Contact Form
 
-To enable the contact form, you can integrate with:
+The contact form is integrated with **Formspree**. To enable it:
 
-- **EmailJS**: Follow [EmailJS React integration guide](https://www.emailjs.com/docs/examples/reactjs/)
-- **Formspree**: Update the form action in `Contact.tsx`
+1. Go to [Formspree](https://formspree.io/)
+2. Create a free account and create a new form
+3. Copy your form ID from the form endpoint URL
+4. Open `src/components/Contact.tsx`
+5. Replace `YOUR_FORMSPREE_ID` with your actual form ID:
+   ```typescript
+   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
+   ```
+
+### Download CV
+
+To add your CV download link:
+
+1. Upload your CV PDF to Google Drive
+2. Set sharing permissions to "Anyone with the link can view"
+3. Copy the file ID from the share link
+4. Open `src/components/Hero.tsx` and `src/components/About.tsx`
+5. Replace `YOUR_CV_FILE_ID` with your actual file ID:
+   ```typescript
+   href="https://drive.google.com/file/d/YOUR_CV_FILE_ID/view"
+   ```
 
 ### Personal Information
 
@@ -138,11 +157,8 @@ hisyam-portfolio/
 │   │   └── index.ts       # TypeScript interfaces
 │   ├── App.tsx            # Main App component
 │   ├── main.tsx           # Entry point
-│   └── index.css          # Global styles
+│   └── index.css          # Global styles (Tailwind v4 config)
 ├── index.html             # HTML template with SEO
-├── tailwind.config.js     # Tailwind configuration
-├── postcss.config.js      # PostCSS configuration
-├── tsconfig.json          # TypeScript configuration
 ├── package.json           # Dependencies
 └── README.md              # This file
 ```

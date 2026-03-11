@@ -176,7 +176,7 @@ const About = () => {
               className="mt-10"
             >
               <motion.a
-                href="https://drive.google.com"
+                href="https://drive.google.com/file/d/YOUR_CV_FILE_ID/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-cyan-500/25 transition-all"

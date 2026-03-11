@@ -129,7 +129,7 @@ const Hero = () => {
               </motion.a>
 
               <motion.a
-                href="https://drive.google.com"
+                href="https://drive.google.com/file/d/YOUR_CV_FILE_ID/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/20 backdrop-blur-sm transition-all flex items-center gap-2"

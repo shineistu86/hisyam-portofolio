@@ -23,16 +23,37 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission (replace with actual EmailJS or Formspree integration)
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+
+    // Replace YOUR_FORMSPREE_ID with your actual Formspree form ID
+    // Get your form ID at https://formspree.io/
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
